@@ -11,7 +11,11 @@ let i = 0;
 let successFilled = false;
 
 function whatIsSituation() {
-  if (i === 10 || successFilled) {
+  //  if(i===0){
+  // divInDiv=containerDiv.appendChildI(div)
+  //  }
+
+  if (i === 9 || successFilled) {
     btnNextGuess.disabled = true;
   }
   const userNumber = document.querySelector("#userNumber");
@@ -32,11 +36,16 @@ function whatIsSituation() {
     p.appendChild(text);
   }
 
-  containerDiv.appendChild(p);
+  divInDiv.appendChild(p);
+
   i++;
 }
 
-btnNextGuess.addEventListener("click", whatIsSituation());
+btnNextGuess.addEventListener("click", () => whatIsSituation);
 btnRestart.addEventListener("click", () => {
+  document.querySelector("#userNumber").value = "";
   i = 0;
+  successFilled = false;
+  btnNextGuess.disabled = false;
+  containerDiv.remove();
 });
