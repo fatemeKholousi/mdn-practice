@@ -11,8 +11,6 @@ let successFilled = false;
 
 function whatIsSituation() {
   if (i === 0 && successFilled) {
-    innerContainerDiv.innerHTML = "";
-    randomNumber = Math.floor(Math.random() * 100);
     successFilled = false;
     console.log("random==" + randomNumber);
   }
@@ -58,10 +56,19 @@ function whatIsSituation() {
 
 btnNextGuess.addEventListener("click", () => whatIsSituation());
 
+userNumber.addEventListener("keyup", (e) => {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    console.log(e);
+    whatIsSituation();
+  }
+});
 btnRestart.addEventListener("click", () => {
   document.querySelector("#userNumber").value = "";
   btnNextGuess.disabled = false;
 
   i = 0;
   innerContainerDiv.remove();
+  innerContainerDiv.innerHTML = "";
+  randomNumber = Math.floor(Math.random() * 100);
 });
