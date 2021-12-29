@@ -4,27 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="style.css" rel="stylesheet" />
+    <!-- <link href="style.css" rel="stylesheet" /> -->
     <title>Practice</title>
   </head>
   <body class="bg-black p-8">
     <article class="text-white">
       Number Guess I choosed a random number between 1 and 100. guess it in 10
-      turns or Fewer I would Tell you if your gues is too small or too big from
+      turns or Fewer I would Tell you if your guess is too small or too big from
       my random number
     </article>
     <label class="font-bold text-sm text-white"> what do you guess ? </label>
 
     <input type="text" id="userNumber" />
     <button
-      onclick="whatIsSituation()"
       id="btnNextGuess"
       class="bg-cyan-500 rounded-xl px-4 py-1 text-sm font-bold"
     >
       sumbit this guess
     </button>
     <button
-      onclick="whatIsSituation()"
       id="btnRestart"
       class="bg-sky-500 rounded-xl px-4 py-1 text-sm font-bold"
     >
@@ -34,8 +32,8 @@
       id="containerOfResults"
       class="text-red-800 font-bold border border-gray-800 p-2"
     ></div>
-    <script src="guessNumber.js" defer></script>
-    <!-- last plan to use tailwind: -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="guessNumber.js"></script>
   </body>
 </html>

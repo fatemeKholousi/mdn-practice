@@ -1,51 +1,67 @@
 const btnNextGuess = document.querySelector("#btnNextGuess");
-
 const btnRestart = document.querySelector("#btnRestart");
-
-// console.log(userNumber.value);
 const containerDiv = document.querySelector("#containerOfResults");
-
-const randomNumber = Math.floor(Math.random() * 100);
+let randomNumber = Math.floor(Math.random() * 100);
+const innerContainerDiv = document.createElement("div");
+containerDiv.appendChild(innerContainerDiv);
+console.log("random==" + randomNumber);
 
 let i = 0;
 let successFilled = false;
 
 function whatIsSituation() {
-  //  if(i===0){
-  // divInDiv=containerDiv.appendChildI(div)
-  //  }
+  if (i === 0 && successFilled) {
+    innerContainerDiv.innerHTML = "";
+    randomNumber = Math.floor(Math.random() * 100);
+    successFilled = false;
+    console.log("random==" + randomNumber);
+  }
 
-  if (i === 9 || successFilled) {
+  if (i === 9) {
     btnNextGuess.disabled = true;
   }
+
+  containerDiv.appendChild(innerContainerDiv);
   const userNumber = document.querySelector("#userNumber");
-  const p = document.createElement("p");
+  let divInDiv = document.createElement("div");
 
   if (Number(userNumber.value) === randomNumber) {
-    const text = document.createTextNode(
+    const textNode = document.createTextNode(
       userNumber.value + ":Yes You Made it!"
     );
-    p.appendChild(text);
+    divInDiv.style.backgroundColor = "green";
+    divInDiv.style.color = "white";
+    divInDiv.appendChild(textNode);
     successFilled = true;
     btnNextGuess.disabled = true;
+
+    console.log(userNumber.value + ":Yes You Made it!");
   } else if (Number(userNumber.value) >= randomNumber) {
-    const text = document.createTextNode(userNumber.value + ":too far");
-    p.appendChild(text);
+    divInDiv.style.backgroundColor = "red";
+    divInDiv.style.color = "white";
+    const textNode = document.createTextNode(userNumber.value + ":too far");
+    divInDiv.appendChild(textNode);
+
+    console.log(userNumber.value + ":too far");
   } else {
-    const text = document.createTextNode(userNumber.value + ":too low");
-    p.appendChild(text);
+    divInDiv.style.backgroundColor = "red";
+    divInDiv.style.color = "white";
+    const textNode = document.createTextNode(userNumber.value + ":too low");
+    divInDiv.appendChild(textNode);
+
+    console.log(userNumber.value + ":too low");
   }
 
-  divInDiv.appendChild(p);
-
   i++;
+  innerContainerDiv.appendChild(divInDiv);
 }
 
-btnNextGuess.addEventListener("click", () => whatIsSituation);
+btnNextGuess.addEventListener("click", () => whatIsSituation());
+
 btnRestart.addEventListener("click", () => {
   document.querySelector("#userNumber").value = "";
-  i = 0;
-  successFilled = false;
   btnNextGuess.disabled = false;
-  containerDiv.remove();
+
+  i = 0;
+  innerContainerDiv.remove();
 });
