@@ -66,6 +66,7 @@ userNumber.addEventListener("keyup", (e) => {
 btnRestart.addEventListener("click", () => {
   document.querySelector("#userNumber").value = "";
   btnNextGuess.disabled = false;
+  userNumber.focus();
 
   i = 0;
   innerContainerDiv.remove();
