@@ -1,0 +1,11 @@
+function remover(sentence){
+    const sentenceArray=sentence.split(' ');
+    
+    let resultSet =new Set(sentenceArray)
+    
+    let resultArray=Array.from(resultSet)
+    
+        console.log(resultArray.join(' '))
+
+}
+remover("this is is result is")
