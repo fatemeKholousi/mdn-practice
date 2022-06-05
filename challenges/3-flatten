@@ -1,0 +1,17 @@
+const arr=[12,[22,[4],[3]],[5987]]
+
+function flatten(arr){
+    const result= arr.reduce((resultArr,item)=>{
+       if(Array.isArray(item)){
+        resultArr= resultArr.concat(flatten(item))
+       }
+        else{
+          resultArr.push(item)
+       }
+      return resultArr
+       
+    },[])
+  return result
+    
+}
+flatten(arr)
