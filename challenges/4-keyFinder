@@ -1,0 +1,42 @@
+we want to find out the key is exist in a random object with random depth? what is the depth?
+
+const obj={
+    a:3,
+    b:{
+        c:4,
+        d:5,
+        e:{
+            f:6
+        },
+    },
+    g:9,
+}
+
+let indexHolder=''
+function findKey(obj,key){
+ 
+  const arr=Object.entries(obj)
+  arr.forEach((item,index)=>{
+    if(item[0]===key){
+             indexHolder+=`[${index}]`
+
+      console.log(indexHolder)
+     
+    }
+ if(typeof item[1]==="object" ){
+        indexHolder+=`[${index}]`
+
+      findKey(item[1],key)
+    }
+  })
+
+}
+
+// 1-convert to array
+// 2-for
+// 3-if its equal
+// 4-if its obj
+//   4-1 conver to array
+//   4-2 repeat
+// 5-؟
+findKey(obj,"f")
