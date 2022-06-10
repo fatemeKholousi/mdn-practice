@@ -1,0 +1,28 @@
+we have a key
+we want to know if two item in an array is equal to our key or not
+
+let key=3
+ let sum=0
+let arr=[2,5,3,6,8,7,9,1,0]
+let flag=false
+for(let i=0;i<arr.length;i++){
+ 
+    for(let j=i;j<arr.length;j++){
+        if(i===j) continue;    
+        else{
+             sum=0
+            sum=arr[i]+arr[j]
+            if(key===sum)
+           {   console.log(arr[i]+"+"+arr[j])
+         flag=true}
+         }
+      
+    
+}
+ 
+    
+}
+
+if(flag===false){
+  console.log("not found")
+ }
