@@ -1,0 +1,12 @@
+function debounce(fn,delay) {
+    let itemId;
+    return function () {
+        if(itemId){
+            return
+        }
+        itemId=setTimeOut(()=>{
+            fn.apply(this,arguments)
+        },delay)
+        itemId=null
+    }
+}
