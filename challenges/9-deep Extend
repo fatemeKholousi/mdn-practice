@@ -1,0 +1,47 @@
+***********************imagine we have a function calling "deepExtend(obj1,obj2)"
+
+***********************priority override by second one
+const obj1={
+a:1,
+b:2,
+  c:{
+  d:5,
+  e:6,
+  f:{}
+  },
+f:"foo"
+}
+
+
+const obj2={
+a:5,
+h:"fateme",
+  c:{
+  d:6,
+  m:5,
+    f:{
+      x:10
+    }
+  }
+}
+
+/* result should be:
+
+const result={
+a:5,
+b:2,
+ c:{
+  d:6,
+  e:6,
+  m:5,
+   f:{
+      x:10
+    },
+   g:"foo",
+   h:"fateme",
+
+  }
+ 
+ 
+
+*/
