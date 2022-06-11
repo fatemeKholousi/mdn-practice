@@ -1,0 +1,18 @@
+************the solution is with two pointer parameter
+
+
+let key=85;
+let arr=[1,2,3,4,5,6,7,80,88]
+let start=0
+let end=arr.length-1;
+
+for (let i=0;i<arr.length;i++){
+    let sum=arr[start]+arr[end]
+    if(sum===key) { console.log(`[${start}] [${end}]`); break}
+    else if(sum<key){start++}
+    else if(sum>key){end--}
+
+    else { console.log("not found")}
+     sum=0
+    
+}
