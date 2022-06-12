@@ -42,7 +42,42 @@ b:2,
    h:"fateme",
 
   }
+ */
  
  
+ 
+ 
+ 
+ let obj3={}
 
-*/
+// console.log(obj1.hasOwnProperty('a')===obj2.hasOwnProperty('a'))
+
+
+function deepExtend(obj1,obj2){
+obj1Array=Object.entries(obj1)
+obj2Array=Object.entries(obj2)
+
+for(let i=0;i<obj1Array.length;i++){
+  
+  if(obj1.hasOwnProperty(obj1Array[i]?.[0])===obj2.hasOwnProperty(obj1Array[i]?.[0])){
+    if(obj1Array[i]?.[0]!==false){
+      obj3[obj1Array[i]?.[0]]=obj1Array[i]?.[1]}
+    }
+    // o1 has it but o2 doesn't
+  else if(obj1.hasOwnProperty(obj1Array[i]?.[0])!==obj2.hasOwnProperty(obj1Array[i]?.[0])){
+     obj3[obj1Array[i]?.[0]]=obj1Array[i]?.[1]
+  }}
+  
+
+
+for(let j=0;j<obj2Array.length;j++){
+     if(obj2.hasOwnProperty(obj2Array[j]?.[0])!==obj1.hasOwnProperty(obj2Array[j]?.[0])){
+            obj3[obj2Array[j]?.[0]]=obj2Array[j]?.[1]
+
+    }
+
+}}
+
+
+deepExtend(obj1,obj2)
+console.log(obj3)
