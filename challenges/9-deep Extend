@@ -1,6 +1,7 @@
 ***********************imagine we have a function calling "deepExtend(obj1,obj2)"
 
 ***********************priority override by second one
+***********how to nest?
 const obj1={
 a:1,
 b:2,
