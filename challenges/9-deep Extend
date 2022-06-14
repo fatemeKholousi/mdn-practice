@@ -1,77 +1,102 @@
-***********************imagine we have a function calling "deepExtend(obj1,obj2)"
 
-***********************priority override by second one
-***********how to nest?
 const obj1={
-a:1,
-b:2,
-  c:{
-  d:5,
-  e:6,
-  f:{}
-  },
-f:"foo"
-}
-
-
-const obj2={
-a:5,
-h:"fateme",
-  c:{
-  d:6,
-  m:5,
-    f:{
-      x:10
+    a:1,
+    b:2,
+      c:{
+      d:5,
+      e:6,
+      f:{}
+      },
+    f:"foo"
     }
-  }
-}
-
-/* result should be:
-
-const result={
-a:5,
-b:2,
- c:{
-  d:6,
-  e:6,
-  m:5,
-   f:{
-      x:10
-    },
-   g:"foo",
-   h:"fateme",
-
-  }
- */
- 
- 
- let obj3={}
-
-function deepExtend(obj1,obj2){
-obj1Array=Object.entries(obj1)
-obj2Array=Object.entries(obj2)
-
-for(let i=0;i<obj1Array.length;i++){
-  
-  if(obj1.hasOwnProperty(obj1Array[i]?.[0])===obj2.hasOwnProperty(obj1Array[i]?.[0])){
-    if(obj1Array[i]?.[0]!==false){
-      obj3[obj1Array[i]?.[0]]=obj1Array[i]?.[1]}
+    
+    
+    const obj2={
+    a:5,
+    h:"fateme",
+      c:{
+      d:6,
+      m:5,
+        f:{
+          x:10
+        }
+      }
     }
-    // o1 has it but o2 doesn't
-  else if(obj1.hasOwnProperty(obj1Array[i]?.[0])!==obj2.hasOwnProperty(obj1Array[i]?.[0])){
-     obj3[obj1Array[i]?.[0]]=obj1Array[i]?.[1]
-  }}
-  
+    
+    /* result should be:
+    
+    const result={
+    a:5,
+    b:2,
+     c:{
+      d:6,
+      e:6,
+      m:5,
+       f:{
+          x:10
+        },
+       g:"foo",
+       h:"fateme",
+    
+      }
+     */
+     
+     
+     let obj3={}
 
 
-for(let j=0;j<obj2Array.length;j++){
-     if(obj2.hasOwnProperty(obj2Array[j]?.[0])!==obj1.hasOwnProperty(obj2Array[j]?.[0])){
-            obj3[obj2Array[j]?.[0]]=obj2Array[j]?.[1]
 
-    }
-
-}}
+        function objectExtender(arr1,arr2){}
 
 
-deepExtend(obj1,obj2)
-console.log(obj3)
+    function deepExtend(obj1,obj2){
+
+     if(Array.isArray(obj1)===Array.isArray(obj2))
+       { obj1Array=Object.entries(obj1)
+        obj2Array=Object.entries(obj2)}
+    
+    for(let i=0;i<obj1Array.length;i++){
+
+      if(obj1.hasOwnProperty(obj1Array[i]?.[0])===obj2.hasOwnProperty(obj1Array[i]?.[0])){
+          if(obj1Array[i]?.[0]){
+            // if(typeof obj1Array[i][1]==='object'&&typeof obj1Array[i][1]!==null){
+                
+            //     console.log('object')
+
+
+            //     let objForSecondObj ={}
+              
+            //     for(let q=0;q<obj2Array.length;q++){
+            //         if(obj2Array[q][0]===obj1Array[i]?.[0]){
+            //             objForSecondObj=obj2Array[q][1]
+            //         }
+            //     }
+            //     // console.log(objForSecondObj,)
+            //     deepExtend(obj1Array[i][1],objForSecondObj)
+            //     // console.log(Array.isArray(obj1))
+            // }
+          obj3[obj1Array[i]?.[0]]=obj2Array[i]?.[1]}
+            }
+        // o1 has it but o2 doesn't
+           else if(obj1.hasOwnProperty(obj1Array[i]?.[0])!==obj2.hasOwnProperty(obj1Array[i]?.[0])){
+             obj3[obj1Array[i]?.[0]]=obj1Array[i]?.[1]
+            }
+         
+      
+      }
+
+        
+    
+    
+    for(let j=0;j<obj2Array.length;j++){
+              
+         if(obj2.hasOwnProperty(obj2Array[j]?.[0])!==obj1.hasOwnProperty(obj2Array[j]?.[0])){
+                obj3[obj2Array[j]?.[0]]=obj2Array[j]?.[1]
+    
+        }
+    
+    }}
+    
+    
+    deepExtend(obj1,obj2)
+    console.log(obj3)
